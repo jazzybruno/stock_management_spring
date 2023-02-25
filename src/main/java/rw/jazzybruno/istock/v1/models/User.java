@@ -1,4 +1,4 @@
-package rw.jazzybruno.istock.v1.dto;
+package rw.jazzybruno.istock.v1.models;
 
 
 import com.sun.istack.NotNull;
