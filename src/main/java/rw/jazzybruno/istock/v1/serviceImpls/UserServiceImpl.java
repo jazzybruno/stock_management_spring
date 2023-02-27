@@ -1,9 +1,11 @@
 package rw.jazzybruno.istock.v1.serviceImpls;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import rw.jazzybruno.istock.v1.dto.CreateUserDTO;
 import rw.jazzybruno.istock.v1.dto.UserDTOMapper;
@@ -21,9 +23,9 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
     private final UserDTOMapper userDTOMapper;
+
     public ResponseEntity<ApiResponse> getAllUsers() throws Exception{
       try {
           List<User> users = userRepository.findAll();
@@ -96,5 +98,48 @@ public class UserServiceImpl implements UserService {
              ));
          }
 
+    }
+
+    public void updateUserMapper(Optional<User> user, CreateUserDTO createUserDTO){
+        user.get().setRole(createUserDTO.getRole());
+        user.get().setEmail(createUserDTO.getEmail());
+        user.get().setUsername(createUserDTO.getUsername());
+        user.get().setNational_id(createUserDTO.getNational_id());
+        user.get().setPassword(createUserDTO.getPassword());
+    }
+
+    @Transactional
+    public ResponseEntity<ApiResponse> updateUser(Long user_id ,  CreateUserDTO createUserDTO) throws Exception {
+        if (userRepository.existsById(user_id)) {
+            Optional<User> user = userRepository.findById(user_id);
+            updateUserMapper(user, createUserDTO);
+            return ResponseEntity.ok().body(new ApiResponse(
+                    true,
+                    "Successfully updated the user",
+                    user.map(userDTOMapper)
+            ));
+        } else {
+            return ResponseEntity.status(404).body(new ApiResponse(
+                    false,
+                    "The user with the id:" + user_id + " does not exist"
+            ));
+        }
+    }
+
+    public ResponseEntity<ApiResponse> deleteUser(Long user_id) throws Exception{
+        if (userRepository.existsById(user_id)) {
+            Optional<User> user = userRepository.findById(user_id);
+            userRepository.deleteById(user_id);
+            return ResponseEntity.ok().body(new ApiResponse(
+                    true,
+                    "Successfully deleted the user",
+                    user.map(userDTOMapper)
+            ));
+        }else {
+            return ResponseEntity.status(404).body(new ApiResponse(
+                    false,
+                    "The user with the id:" + user_id + " does not exist"
+            ));
+        }
     }
 }

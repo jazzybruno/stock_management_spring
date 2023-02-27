@@ -28,7 +28,18 @@ public class UserController {
         return userService.getUserById(user_id);
     }
 
+    @PostMapping("/create")
     public ResponseEntity<ApiResponse> createUser(@RequestBody CreateUserDTO createUserDTO) throws Exception{
         return userService.createUser(createUserDTO);
+    }
+
+    @PutMapping("/update/{user_id}")
+    public ResponseEntity<ApiResponse> updateUser(@PathVariable Long user_id ,  @RequestBody CreateUserDTO createUserDTO) throws Exception{
+        return userService.updateUser(user_id , createUserDTO);
+    }
+
+    @DeleteMapping("/delete/{user_id}")
+    public ResponseEntity<ApiResponse> deleteUser(@PathVariable Long user_id) throws Exception{
+        return userService.deleteUser(user_id);
     }
 }
