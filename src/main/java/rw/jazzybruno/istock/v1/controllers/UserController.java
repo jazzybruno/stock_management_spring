@@ -1,14 +1,13 @@
 package rw.jazzybruno.istock.v1.controllers;
 
-import org.springframework.web.bind.annotation.PathVariable;
+import io.swagger.annotations.Api;
+import org.springframework.web.bind.annotation.*;
+import rw.jazzybruno.istock.v1.dto.CreateUserDTO;
 import rw.jazzybruno.istock.v1.payload.ApiResponse;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import rw.jazzybruno.istock.v1.serviceImpls.UserServiceImpl;
 
 import java.security.PublicKey;
@@ -27,5 +26,9 @@ public class UserController {
     @GetMapping("/id/{user_id}")
     public ResponseEntity<ApiResponse> getUserById(@PathVariable Long user_id) throws Exception{
         return userService.getUserById(user_id);
+    }
+
+    public ResponseEntity<ApiResponse> createUser(@RequestBody CreateUserDTO createUserDTO) throws Exception{
+        return userService.createUser(createUserDTO);
     }
 }
