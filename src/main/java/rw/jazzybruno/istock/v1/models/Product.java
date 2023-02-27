@@ -1,7 +1,6 @@
-package rw.jazzybruno.istock.v1.dto;
+package rw.jazzybruno.istock.v1.models;
 
 import com.sun.istack.NotNull;
-import com.sun.tools.javac.jvm.Gen;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

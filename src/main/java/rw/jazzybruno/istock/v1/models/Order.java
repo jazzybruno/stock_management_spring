@@ -1,4 +1,4 @@
-package rw.jazzybruno.istock.v1.dto;
+package rw.jazzybruno.istock.v1.models;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "orders")
-public class Orders {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long order_id;
@@ -33,7 +33,7 @@ public class Orders {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Orders(String order_description, int quantity, LocalDate orderDate, Product product, User user) {
+    public Order(String order_description, int quantity, LocalDate orderDate, Product product, User user) {
         this.order_description = order_description;
         this.quantity = quantity;
         this.orderDate = orderDate;
