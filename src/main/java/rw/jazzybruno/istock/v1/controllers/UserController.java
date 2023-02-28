@@ -1,16 +1,11 @@
 package rw.jazzybruno.istock.v1.controllers;
 
-import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
-import rw.jazzybruno.istock.v1.dto.CreateUserDTO;
+import rw.jazzybruno.istock.v1.dto.User.CreateUserDTO;
 import rw.jazzybruno.istock.v1.payload.ApiResponse;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import rw.jazzybruno.istock.v1.serviceImpls.UserServiceImpl;
-
-import java.security.PublicKey;
 
 @RestController
 @RequestMapping("/api/v1/user")

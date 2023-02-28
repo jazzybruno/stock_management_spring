@@ -1,14 +1,12 @@
 package rw.jazzybruno.istock.v1.serviceImpls;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import rw.jazzybruno.istock.v1.dto.CreateUserDTO;
-import rw.jazzybruno.istock.v1.dto.UserDTOMapper;
+import rw.jazzybruno.istock.v1.dto.User.CreateUserDTO;
+import rw.jazzybruno.istock.v1.dto.User.UserDTOMapper;
 import rw.jazzybruno.istock.v1.models.User;
 import rw.jazzybruno.istock.v1.payload.ApiResponse;
 import rw.jazzybruno.istock.v1.repositories.UserRepository;
@@ -94,7 +92,7 @@ public class UserServiceImpl implements UserService {
          }else{
              return ResponseEntity.status(401).body(new ApiResponse(
                      false,
-                     "The user with the email:" + createUserDTO.getEmail() + " does not exist"
+                     "The user with the email:" + createUserDTO.getEmail() + " already exists"
              ));
          }
 

@@ -1,6 +1,6 @@
 package rw.jazzybruno.istock.v1.services;
 
-import rw.jazzybruno.istock.v1.dto.CreateUserDTO;
+import rw.jazzybruno.istock.v1.dto.User.CreateUserDTO;
 import rw.jazzybruno.istock.v1.payload.ApiResponse;
 import org.springframework.http.ResponseEntity;
 

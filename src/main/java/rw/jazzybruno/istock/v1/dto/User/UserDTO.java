@@ -1,4 +1,4 @@
-package rw.jazzybruno.istock.v1.dto;
+package rw.jazzybruno.istock.v1.dto.User;
 import javax.management.relation.Role;
 
 public record UserDTO(
