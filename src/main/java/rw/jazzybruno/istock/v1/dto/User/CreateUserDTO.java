@@ -1,4 +1,4 @@
-package rw.jazzybruno.istock.v1.dto;
+package rw.jazzybruno.istock.v1.dto.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

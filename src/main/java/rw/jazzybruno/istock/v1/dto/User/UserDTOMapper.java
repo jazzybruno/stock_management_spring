@@ -1,6 +1,5 @@
-package rw.jazzybruno.istock.v1.dto;
+package rw.jazzybruno.istock.v1.dto.User;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import rw.jazzybruno.istock.v1.models.User;
 
