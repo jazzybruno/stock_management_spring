@@ -17,6 +17,6 @@ public class CreateOrderDTO {
    private String order_description;
    private int quantity;
    private LocalDate orderDate;
-   private Product product;
-   private User user;
+   private Long product_id;
+   private Long user_id;
 }

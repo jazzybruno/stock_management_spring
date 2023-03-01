@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rw.jazzybruno.istock.v1.dto.Order.CreateOrderDTO;
+import rw.jazzybruno.istock.v1.dto.Order.UpdateOrderDTO;
 import rw.jazzybruno.istock.v1.dto.Product.CreateProductDTO;
 import rw.jazzybruno.istock.v1.payload.ApiResponse;
 import rw.jazzybruno.istock.v1.serviceImpls.OrderServiceImpl;
@@ -30,8 +31,8 @@ public class OrderController {
     }
 
     @PutMapping("/update/{order_id}")
-    public ResponseEntity<ApiResponse> updateOrder (@PathVariable Long order_id  ,  @RequestBody CreateOrderDTO createOrderDTO) throws Exception{
-        return orderService.updateOrder(order_id , createOrderDTO);
+    public ResponseEntity<ApiResponse> updateOrder (@PathVariable Long order_id  ,  @RequestBody UpdateOrderDTO updateOrderDTO) throws Exception{
+        return orderService.updateOrder(order_id , updateOrderDTO);
     }
 
     @DeleteMapping("/delete/{order_id}")

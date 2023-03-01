@@ -1,9 +1,10 @@
 package rw.jazzybruno.istock.v1.dto.Order;
 
+import org.springframework.stereotype.Component;
 import rw.jazzybruno.istock.v1.models.Order;
 
 import java.util.function.Function;
-
+@Component
 public class OrderDTOMapper implements Function<Order, OrderDTO> {
     @Override
     public OrderDTO apply(Order order) {
