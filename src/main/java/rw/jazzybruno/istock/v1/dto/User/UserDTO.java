@@ -5,6 +5,5 @@ public record UserDTO(
         Long userId,
         String email,
         String username,
-        String national_id,
-        Role role) {
+        String national_id) {
 }
